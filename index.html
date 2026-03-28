@@ -232,13 +232,49 @@
     line-height: 1.3;
   }
 
+  .carousel-wrapper {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(201,169,110,0.9);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+  }
+
+  .carousel-btn:hover {
+    background: var(--dourado);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .carousel-btn.prev {
+    left: -25px;
+  }
+
+  .carousel-btn.next {
+    right: -25px;
+  }
+
   .dep-grid {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 1.2rem;
-    max-width: 560px;
-    margin: 0 auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
     scroll-behavior: smooth;
@@ -253,12 +289,16 @@
     border: 1px solid rgba(255,255,255,0.12);
     border-radius: 12px;
     padding: 0;
-    text-align: left;
-    width: 90vw;
+    text-align: center;
+    min-width: 280px;
     max-width: 400px;
+    width: 90vw;
     flex-shrink: 0;
     scroll-snap-align: center;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .dep-card img {
@@ -266,6 +306,7 @@
     height: auto;
     display: block;
     object-fit: contain;
+    max-height: 80vh;
   }
 
   .dep-stars {
@@ -904,25 +945,29 @@
 <!-- ═══ BLOCO 4: DEPOIMENTOS ═══ -->
 <section id="depoimentos">
   <h2 class="reveal">Veja como essas mulheres atraíram os seus futuros maridos depois de fazer a Oração Profética</h2>
-  <div class="dep-grid">
-    <div class="dep-card reveal">
-      <img src="IMG_6890%20(1).JPG" alt="Depoimento">
+  <div class="carousel-wrapper">
+    <button class="carousel-btn prev" onclick="scrollCarousel(-1)">‹</button>
+    <div class="dep-grid" id="depCarousel">
+      <div class="dep-card reveal">
+        <img src="IMG_6890%20(1).JPG" alt="Depoimento" loading="lazy">
+      </div>
+      <div class="dep-card reveal">
+        <img src="IMG_7085%20(1).PNG" alt="Depoimento" loading="lazy">
+      </div>
+      <div class="dep-card reveal">
+        <img src="IMG_7437.PNG" alt="Depoimento" loading="lazy">
+      </div>
+      <div class="dep-card reveal">
+        <img src="IMG_7550.PNG" alt="Depoimento" loading="lazy">
+      </div>
+      <div class="dep-card reveal">
+        <img src="IMG_7562.PNG" alt="Depoimento" loading="lazy">
+      </div>
+      <div class="dep-card reveal">
+        <img src="IMG_7739.PNG" alt="Depoimento" loading="lazy">
+      </div>
     </div>
-    <div class="dep-card reveal">
-      <img src="IMG_7085%20(1).PNG" alt="Depoimento">
-    </div>
-    <div class="dep-card reveal">
-      <img src="IMG_7437.PNG" alt="Depoimento">
-    </div>
-    <div class="dep-card reveal">
-      <img src="IMG_7550.PNG" alt="Depoimento">
-    </div>
-    <div class="dep-card reveal">
-      <img src="IMG_7562.PNG" alt="Depoimento">
-    </div>
-    <div class="dep-card reveal">
-      <img src="IMG_7739.PNG" alt="Depoimento">
-    </div>
+    <button class="carousel-btn next" onclick="scrollCarousel(1)">›</button>
   </div>
 </section>
 
@@ -1092,6 +1137,14 @@ const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
 }, { threshold: 0.12 });
 reveals.forEach(el => obs.observe(el));
+
+// Carousel navigation
+function scrollCarousel(direction) {
+  const carousel = document.getElementById('depCarousel');
+  const cardWidth = carousel.querySelector('.dep-card').offsetWidth;
+  const scrollAmount = (cardWidth + 19.2) * direction; // card width + gap
+  carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+}
 </script>
 </body>
 </html>
