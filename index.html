@@ -309,6 +309,32 @@
     max-height: 80vh;
   }
 
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+    }
+
+    .carousel-btn.prev {
+      left: 5px;
+    }
+
+    .carousel-btn.next {
+      right: 5px;
+    }
+
+    .dep-card {
+      min-width: 85vw;
+      max-width: 85vw;
+    }
+
+    .dep-card img {
+      max-height: 70vh;
+    }
+  }
+
   .dep-stars {
     color: var(--dourado);
     font-size: 0.9rem;
