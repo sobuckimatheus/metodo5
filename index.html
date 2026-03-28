@@ -311,27 +311,47 @@
 
   /* Mobile adjustments */
   @media (max-width: 768px) {
+    #depoimentos {
+      padding: 3rem 0.5rem;
+    }
+
+    .carousel-wrapper {
+      padding: 0 10px;
+    }
+
     .carousel-btn {
       width: 40px;
       height: 40px;
       font-size: 1.5rem;
+      opacity: 0.8;
     }
 
     .carousel-btn.prev {
-      left: 5px;
+      left: 0;
     }
 
     .carousel-btn.next {
-      right: 5px;
+      right: 0;
+    }
+
+    .dep-grid {
+      gap: 0.8rem;
+      padding: 0 5px;
     }
 
     .dep-card {
-      min-width: 85vw;
-      max-width: 85vw;
+      min-width: 90vw !important;
+      max-width: 90vw !important;
+      width: 90vw !important;
+      background: rgba(255,255,255,0.1);
     }
 
     .dep-card img {
-      max-height: 70vh;
+      max-height: 75vh !important;
+      min-height: 200px;
+      width: 100% !important;
+      object-fit: contain !important;
+      display: block !important;
     }
   }
 
@@ -975,22 +995,22 @@
     <button class="carousel-btn prev" onclick="scrollCarousel(-1)">‹</button>
     <div class="dep-grid" id="depCarousel">
       <div class="dep-card reveal">
-        <img src="IMG_6890%20(1).JPG" alt="Depoimento" loading="lazy">
+        <img src="IMG_6890%20(1).JPG" alt="Depoimento" loading="eager">
       </div>
       <div class="dep-card reveal">
-        <img src="IMG_7085%20(1).PNG" alt="Depoimento" loading="lazy">
+        <img src="IMG_7085%20(1).PNG" alt="Depoimento" loading="eager">
       </div>
       <div class="dep-card reveal">
-        <img src="IMG_7437.PNG" alt="Depoimento" loading="lazy">
+        <img src="IMG_7437.PNG" alt="Depoimento" loading="eager">
       </div>
       <div class="dep-card reveal">
-        <img src="IMG_7550.PNG" alt="Depoimento" loading="lazy">
+        <img src="IMG_7550.PNG" alt="Depoimento" loading="eager">
       </div>
       <div class="dep-card reveal">
-        <img src="IMG_7562.PNG" alt="Depoimento" loading="lazy">
+        <img src="IMG_7562.PNG" alt="Depoimento" loading="eager">
       </div>
       <div class="dep-card reveal">
-        <img src="IMG_7739.PNG" alt="Depoimento" loading="lazy">
+        <img src="IMG_7739.PNG" alt="Depoimento" loading="eager">
       </div>
     </div>
     <button class="carousel-btn next" onclick="scrollCarousel(1)">›</button>
